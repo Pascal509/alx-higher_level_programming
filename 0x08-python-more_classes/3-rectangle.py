@@ -47,9 +47,7 @@ class Rectangle:
         """Return a string representation of the rectangle using '#'."""
         if self._width == 0 or self._height == 0:
             return ""
-        
         rectangle_str = ""
         for _ in range(self._height):
             rectangle_str += "#" * self._width + "\n"
-        
         return rectangle_str.rstrip()
