@@ -5,3 +5,4 @@ class Rectangle:
     and does not have any specific attributes or methods defined.
     """
     pass
+
