@@ -1,15 +1,19 @@
 The ``0-add_integer`` module
 ======================
 
-Using ``factorial``
+Using ``add_integer``
 -------------------
 
 This is an example text file in reStructuredText format.  First import
-``factorial`` from the ``example`` module:
+``add_integer`` from the ``0-add_integer`` module:
 
-    >>> from example import factorial
+	>>> add_integer = __import__('0-add_integer').add_integer
 
-Now use it:
-
-    >>> factorial(6)
-    120
+	>>> add_integer(1, 2)
+	3
+	>>> add_integer(100, -2)
+	98
+	>>> add_integer(2)
+	100
+	>>> add_integer(100.3, -2)
+	98
