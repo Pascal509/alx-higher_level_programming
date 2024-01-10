@@ -1,12 +1,18 @@
 #!/usr/bin/python3
 """
-module is_same_class returns True
+Parent class: is_same_class returns True for specified dataype
+
+Define is_same_class function.
 """
+
+
+
 def is_same_class(obj, a_class):
     """
-    Condition that checks the datatype
+    Module returns an instance of a_class
+
+    Args:
+    obj is an object.
+    a_class is a class
     """
-    if isinstance obj(int, float, object):
-        return True
-    else:
-        return False
+    return (type(obj) is a_class)
