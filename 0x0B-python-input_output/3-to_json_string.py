@@ -8,5 +8,6 @@ Args:
     my_obj - 
 """
 def to_json_string(my_obj):
+    """access JSON representataion"""
     rep_json = json.dumps(my_obj)
     return rep_json
