@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr\/bin/python3
 from models.base import Base
 """
 Define a subclass Rectangle that inherits from Base
@@ -12,19 +12,34 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
-    @property
-    def width(self):
+    def get_width(self):
         """Get width of rectangle"""
-        return self__width
+        return self.__width
 
-    @width.setter
-    def width(self, new_width):
+    def set_width(self, width):
         """Set width of rectangle and add validation logic"""
-        self.validate_integer("width", value, False)
-        self.__width = value
+        self.__width = width 
 
+    def get_height(self):
+        """Get width of rectangle"""
+        return self.__height
 
+    def set_height(self,height):
+        """Set width of rectangle and add validation logic"""
+        self.__height = height
 
+    def get_x(self):
+        """Get width of rectangle"""
+        return self.__x
 
+    def set_x(self, x):
+        """Set width of rectangle and add validation logic"""
+        self.__x = x
 
+    def get_y(self):
+        """Get width of rectangle"""
+        return self.__y
 
+    def set_y(self, y):
+        """Set width of rectangle and add validation logic"""
+        self.__y = y
