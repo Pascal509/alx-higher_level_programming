@@ -72,7 +72,35 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.get_width(), -5)
         self.assertEqual(rectangle.get_height(), -10)
         self.assertEqual(rectangle.get_x(), -2)
-        self.assertEqual(rectangle.get_y(), -3)
+        selfi.assertEqual(rectangle.get_y(), -3)
+
+class TestValidate(unittest.TestCase):
+    """TestCase for Validation"""
+    validate = Rectangle()
+    def test_validWidth(self):
+        with self.assertRaises(TypeError):
+            r = Rectangle("invalid", 10)
+        with self.assertRaises(ValueError):
+            r = Rectangle(0, 10)
+
+    def test_validHeight(self):
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, "invalid")
+        with self.assertRaises(ValueError):
+            r = rectangle(10, 20, -5, 30)
+
+    def test_valid_x(self):
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 20, "invalid", 30)
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 20, -5, 30)
+
+    def test_valid_y(self):
+        with self.assertRaises(TypeError):
+            r = Rectangle(10, 20, 30, "invalid")
+        with self.assertRaises(ValueError):
+            r = Rectangle(10, 20, 30, -5)
+
 
 if __name__ == "__main__":
     unittest.main()
