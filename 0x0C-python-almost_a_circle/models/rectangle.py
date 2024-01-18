@@ -9,54 +9,88 @@ Define a subclass Rectangle that inherits from Base
 class Rectangle(Base):
     """Using class constructor initialise class atrributes"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle instance"""
-        super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
 
-    def get_width(self):
+        """Initialize a new Rectangle instance"""
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        elif width <= 0:
+            raise ValueError("width must be > 0")
+        else:
+            self.__width = width
+
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        elif height <= 0:
+            raise ValueError("height must be > 0")
+        else:
+            self.__height = height
+
+        if not isinstance(x, int):
+            raise TypeError("x must be an integer")
+        elif x < 0:
+            raise ValueError("x must be > 0")
+        else:
+            self.__x = x
+
+        if not isinstance(x, int):
+            raise TypeError("y must be an integer")
+        elif y < 0:
+            raise ValueError("y must be > 0")
+        else:
+            self.__y = y
+
+
+        super().__init__(id)
+
+    @property
+    def width(self):
         """Get width of rectangle"""
         return self.__width
 
-    def set_width(self, value):
+    @width.setter
+    def width(self, value):
         """Set width of rectangle and add validation logic"""
         if not isinstance(value, int):
-            raise TypeError("Width must be an integer")
+            raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("Width must be > 0")
+            raise ValueError("width must be > 0")
         self.__width = value
 
-    def get_height(self):
+    @property
+    def height(self):
         """Get width of rectangle"""
         return self.__height
 
-    def set_height(self, value):
+    @height.setter
+    def height(self, value):
         """Set width of rectangle and add validation logic"""
         if not isinstance(value, int):
-            raise TypeError("Height must be an integer")
-        if value <= 0:
-            raise ValueError("Height must be > 0")
+            raise TypeError("height must be an integer")
+        elif value <= 0:
+            raise ValueError("height must be > 0")
         self.__height = value
 
-    def get_x(self):
+    @property
+    def x(self):
         """Get width of rectangle"""
         return self.__x
 
-    def set_x(self, value):
+    @x.setter
+    def x(self, value):
         """Set width of rectangle and add validation logic"""
         if not isinstance(value, int):
-            raise TypeError("X must be an integer")
-        if value <= 0:
-            raise ValueError("X must be >= 0")
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
         self.__x = value
 
-    def get_y(self):
+    @property
+    def y(self):
         """Get width of rectangle"""
         return self.__y
 
-    def set_y(self, value):
+    @y.setter
+    def y(self, value):
         """Set width of rectangle and add validation logic"""
         if not isinstance(value, int):
             raise TypeError("Y must be an integer")
