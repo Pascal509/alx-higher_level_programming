@@ -41,6 +41,7 @@ class TestRectangle(unittest.TestCase):
 
         self.assertNotEqual(rectangle1.id, rectangle2.id)
 
+
     def tearDown(self):
         Rectangle.__nb_objects = 0
 
@@ -70,6 +71,19 @@ class TestValidate(unittest.TestCase):
             r = Rectangle(10, 20, 30, "invalid")
         with self.assertRaises(ValueError):
             r = Rectangle(10, 20, 30, -5)
+
+class TestDisplay(unittest.TestCase):
+    """TestCase for printing Rectangle instance to stdout"""
+    def test_displayWidth(self):
+        rectangle_ins = Rectangle(5, 10, 3, 2, 1)
+
+        with self.assertLogs(level='INFO') as cm:
+            rectangle_ins.display()
+        print_output = cm.output[0]
+
+        expected_output = '\n  #####\n  #####\n  #####\n'
+
+        self.assertEqual(print_output, expected_output)
 
 class TestRectangleStr(unittest.TestCase):
     def test_str(self):

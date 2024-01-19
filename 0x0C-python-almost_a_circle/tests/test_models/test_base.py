@@ -2,7 +2,6 @@
 """Modules for base unit testing"""
 import unittest
 from models.base import Base
-from models.rectangle import Rectangle
 
 class Testbase(unittest.TestCase):
     """Test Base class"""
