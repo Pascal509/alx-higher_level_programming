@@ -71,6 +71,13 @@ class TestValidate(unittest.TestCase):
         with self.assertRaises(ValueError):
             r = Rectangle(10, 20, 30, -5)
 
+class TestRectangleStr(unittest.TestCase):
+    def test_str(self):
+        string = Rectangle(width=5, height=3, x=2, y=1, id=1)
+        expected_str = "[Rectangle] (1) 2/1 - 5/3"
+
+        self.assertEqual(str(string), expected_str)
+
 
 if __name__ == "__main__":
     unittest.main()
