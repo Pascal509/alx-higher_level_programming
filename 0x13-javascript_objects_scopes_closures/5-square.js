@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 const Rectangle = require('./4-rectangle');
 
 class mySquare extends Rectangle {

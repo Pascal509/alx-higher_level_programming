@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+
 const Square = require('./5-square');
 
 class mySquare extends Square {
