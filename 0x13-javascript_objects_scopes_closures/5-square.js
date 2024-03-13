@@ -1,14 +1,9 @@
 #!/usr/bin/bash
-const Square = require('./5-square');
+const Rectangle = require('./4-rectangle');
 
-class mySquare extends Square{
-  charPrint (c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-    for (let j = 0; j < this.height; j++) {
-      console.log(c.repeat(this.width))
-    }
-  }  
+class mySquare extends Rectangle {
+  constructor (size) {
+    super(size, size);
+  }
 }
 module.exports = mySquare;
