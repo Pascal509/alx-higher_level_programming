@@ -9,11 +9,16 @@ database hbtn_0e_0_usa
 
 MyConnect connects to MySQL server
 """
+username = sys.argv[1]
+password = sys.argv[2]
+database = sys.argv[3]
+
 MyConnect = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user="root",
-        database="hbtn_0e_0_usa")
+        user=username,
+        passwd=password,
+        db=database)
 
 """Create cursor object"""
 cursor = MyConnect.cursor()
