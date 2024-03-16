@@ -1,15 +1,30 @@
 #!/usr/bin/python3
+"""import MySQLdb module"""
 import sys
 import MySQLdb
 
-MyConnect=MySQLdb.connect(host="localhost", port=3306, user="root", database="hbtn_0e_0_usa")
+"""
+Write a script that lists all states from the
+database hbtn_0e_0_usa
 
+MyConnect connects to MySQL server
+"""
+MyConnect = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user="root",
+        database="hbtn_0e_0_usa")
+
+"""Create cursor object"""
 cursor = MyConnect.cursor()
 
+"""Execute dbquery to fetch the states by their id"""
 cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-rows=cursor.fetchall()
+"""Fetch and print results row by row"""
+rows = cursor.fetchall()
 for row in rows:
     print(row)
 
+""""Close database connection"""
 MyConnect.close()
