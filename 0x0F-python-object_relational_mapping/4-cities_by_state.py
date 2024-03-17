@@ -1,21 +1,20 @@
 #!/usr/bin/python3
+
 """import module"""
 import sys
 import MySQLdb
 
-"""
-Write a script that takes in an argument and displays all
-values in the states table of hbtn_0e_0_usa where name
-matches the argument.
-"""
-
 
 def main():
+    """
+    Write a script that lists all cities from the database
+    hbtn_0e_4_usa
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    """Connects to mysql server"""
+    """Connect to server"""
     MyConnect = MySQLdb.connect(
             host="localhost",
             port=3306,
@@ -23,19 +22,19 @@ def main():
             passwd=password,
             db=database)
 
-    """Cursor initiates execution"""
     cursor = MyConnect.cursor()
 
-    """Executes mysql server"""
-    cursor.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(sys.argv[4]))
+    """Execute Server"""
+    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities "
+                   "LEFT JOIN states ON state_id = states.id "
+                   "ORDER BY cities.id ASC")
 
-    """Fetch database"""
+    """Iterate over each row and fetch data"""
     rows = cursor.fetchall()
-
     for row in rows:
         print(row)
 
-    """Close connection"""
+    """Close Server"""
     MyConnect.close()
 
 
