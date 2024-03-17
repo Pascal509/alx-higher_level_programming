@@ -9,27 +9,35 @@ database hbtn_0e_0_usa
 
 MyConnect connects to MySQL server
 """
-username = sys.argv[1]
-password = sys.argv[2]
-database = sys.argv[3]
 
-MyConnect = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database)
 
-"""Create cursor object"""
-cursor = MyConnect.cursor()
+def main():
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-"""Execute dbquery to fetch the states by their id"""
-cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    MyConnect = MySQLdb.connect(
+            host="localhost",
+            port=3306,
+            user=username,
+            passwd=password,
+            db=database)
 
-"""Fetch and print results row by row"""
-rows = cursor.fetchall()
-for row in rows:
-    print(row)
+    """Create cursor object"""
+    cursor = MyConnect.cursor()
 
-""""Close database connection"""
-MyConnect.close()
+    """Execute dbquery to fetch the states by their id"""
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+    """Fetch and print results row by row"""
+    rows = cursor.fetchall()
+
+    for row in rows:
+        print(row)
+
+    """Close database connection"""
+    MyConnect.close()
+
+
+if __name__ == "__main__":
+    main()
