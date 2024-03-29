@@ -22,10 +22,10 @@ if __name__ == "__main__":
     q = {'q': q}
     body = requests.post(url, data=q)
     try:
-        obj = r.json()
+        obj = body.json()
         if not obj:
             print('No result')
         else:
-            print(f'[{obj["id"]}] {obj["name"]}')
+            print(f"[{obj['id']}] {obj['name']}")
     except requests.exceptions.JSONDecodeError:
         print('Not a valid JSON')
