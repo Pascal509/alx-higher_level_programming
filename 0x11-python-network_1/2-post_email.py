@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Define modules"""
 import urllib.parse
 import urllib.request
 import sys
@@ -14,9 +15,10 @@ if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
 
-    My_data = urllib.parse.urlencode({'Your email is' : email})
-    My_data = My_data.encode('utf-8')
-    req = urllib.request.Request(url, My_data)
+    data = urllib.parse.urlencode({'email' : email})
+    data = data.encode('utf-8')
+    req = urllib.request.Request(url, data=data, method='POST')
+    
     with urllib.request.urlopen(req) as response:
         page = response.read().decode('utf-8')
         print(page)
