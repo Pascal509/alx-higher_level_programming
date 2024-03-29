@@ -17,9 +17,9 @@ if __name__ == "__main__":
     try:
         q = sys.argv[1]
     except IndexError:
-        q=""
+        q = ""
 
-
+    q = {'q': q}
     body = requests.post(url, data=q)
     try:
         obj = r.json()
