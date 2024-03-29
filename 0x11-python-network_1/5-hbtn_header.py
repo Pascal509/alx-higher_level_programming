@@ -10,8 +10,6 @@ if __name__ == "__main__":
     response header
     """
     url = sys.argv[1]
-
     body = requests.get(url)
-    print(body.headers['X-Request-Id'])
-    
-
+    req = body.headers['X-Request-Id']
+    print(req)

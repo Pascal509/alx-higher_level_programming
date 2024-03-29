@@ -11,7 +11,6 @@ if __name__ == "__main__":
     URL and displays the body of the response (decoded in utf-8).
     """
     url = sys.argv[1]
-    
     try:
         with urllib.request.urlopen(url) as response:
             body = response.read().decode('utf-8')
